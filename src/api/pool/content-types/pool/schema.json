@@ -26,7 +26,9 @@
       "enum": [
         "available",
         "canceled",
-        "pooled"
+        "pooled",
+        "open",
+        "full"
       ]
     },
     "day": {
@@ -72,6 +74,32 @@
     },
     "use_email": {
       "type": "boolean"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "cab",
+        "subscription",
+        "other"
+      ]
+    },
+    "service": {
+      "type": "string"
+    },
+    "numberPeople": {
+      "type": "integer"
+    },
+    "start": {
+      "type": "date"
+    },
+    "end": {
+      "type": "date"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "metadata": {
+      "type": "json"
     }
   }
 }
