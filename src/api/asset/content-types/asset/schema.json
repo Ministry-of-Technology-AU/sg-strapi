@@ -17,11 +17,9 @@
       "enum": [
         "mobile",
         "cable",
-        "adapter"
+        "adapter",
+        "other"
       ]
-    },
-    "model": {
-      "type": "string"
     },
     "name": {
       "type": "string"
@@ -41,16 +39,20 @@
       "target": "api::borrow-request.borrow-request",
       "mappedBy": "is_the_latest_booking_of"
     },
-    "Image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+    "image": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "enumeration",
+      "enum": [
+        "techmin",
+        "jazbaa"
       ]
+    },
+    "is_issued": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

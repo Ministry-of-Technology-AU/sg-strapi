@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "borrow_assets_pocs",
+  "info": {
+    "singularName": "borrow-assets-poc",
+    "pluralName": "borrow-assets-pocs",
+    "displayName": "Borrow Assets POC"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "techmin": {
+      "type": "string",
+      "default": "technology.ministry@ashoka.edu.in",
+      "required": true
+    },
+    "jazbaa": {
+      "type": "string",
+      "required": true,
+      "default": "culturalministry@ashoka.edu.in"
+    }
+  }
+}

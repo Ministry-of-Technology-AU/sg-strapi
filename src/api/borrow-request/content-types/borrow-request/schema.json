@@ -18,12 +18,6 @@
     "to": {
       "type": "date"
     },
-    "issued": {
-      "type": "integer"
-    },
-    "returned": {
-      "type": "integer"
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",
