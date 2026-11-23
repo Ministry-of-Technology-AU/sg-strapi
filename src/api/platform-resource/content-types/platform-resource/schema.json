@@ -23,7 +23,20 @@
     "link": {
       "type": "string",
       "unique": true,
-      "required": true
+      "required": false
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::resource-category.resource-category",
+      "inversedBy": "platform_resources"
     }
   }
 }

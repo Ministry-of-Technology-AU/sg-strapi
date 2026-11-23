@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resource_categories",
+  "info": {
+    "singularName": "resource-category",
+    "pluralName": "resource-categories",
+    "displayName": "Resource Category",
+    "description": "Nested categories for platform resources, e.g. Academic Resources > Mathematics"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::resource-category.resource-category",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::resource-category.resource-category",
+      "mappedBy": "parent"
+    },
+    "platform_resources": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::platform-resource.platform-resource",
+      "mappedBy": "category"
+    }
+  }
+}
