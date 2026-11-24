@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "platform_resources",
+  "info": {
+    "singularName": "platform-resource",
+    "pluralName": "platform-resources",
+    "displayName": "Platform Resources"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "last_updated": {
+      "type": "date",
+      "required": true,
+      "unique": false
+    },
+    "link": {
+      "type": "string",
+      "unique": true,
+      "required": false
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::resource-category.resource-category",
+      "inversedBy": "platform_resources"
+    }
+  }
+}
