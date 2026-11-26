@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "secret_santa_pools",
+  "info": {
+    "singularName": "secret-santa-pool",
+    "pluralName": "secret-santa-pools",
+    "displayName": "Secret Santa Pool",
+    "description": "Secret Santa gift exchange pools"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uid": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "budget": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "max": 100000
+    },
+    "event_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "host_note": {
+      "type": "text",
+      "maxLength": 5000
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "drawing",
+        "drawn"
+      ],
+      "default": "open",
+      "required": true
+    },
+    "drawn_at": {
+      "type": "datetime"
+    },
+    "exclusions": {
+      "type": "json"
+    },
+    "host": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "participants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::secret-santa-participant.secret-santa-participant",
+      "mappedBy": "pool"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "secret_santa_participants",
+  "info": {
+    "singularName": "secret-santa-participant",
+    "pluralName": "secret-santa-participants",
+    "displayName": "Secret Santa Participant",
+    "description": "Participants in Secret Santa gift exchange pools"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pool": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::secret-santa-pool.secret-santa-pool",
+      "inversedBy": "participants"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "wishlist": {
+      "type": "text",
+      "maxLength": 5000
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "link",
+        "host"
+      ],
+      "default": "link",
+      "required": true
+    },
+    "giftee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::secret-santa-participant.secret-santa-participant"
+    },
+    "email_status": {
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "sent",
+        "failed"
+      ],
+      "default": "none",
+      "required": true
+    },
+    "revealed_at": {
+      "type": "datetime"
+    }
+  }
+}
